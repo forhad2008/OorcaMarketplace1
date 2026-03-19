@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OorcaMarketplace</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #d8d8d8;
+            font-family: "Poppins", sans-serif;
+            color: #2e2e2e;
+            overflow-x: hidden;
+            height: 300vh;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 10%;
+        }
+
+        .business-card {
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #64441a, #775219, #694413);
+            color: #f5f5f5;
+            padding: 40px;
+            border-radius: 15px;
+            width: 500px;
+            text-align: center;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+            font-size: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 500;
+        }
+
+        .business-card:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero1 {
+            margin-top: 50%;
+            height: 100vh;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 10%;
+        }
+
+        .business-card1 {
+            position: absolute;
+            top: 130%;
+            left: 70%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #6a6e6e, #798085, #778080);
+            color: #f1f1f1;
+            padding: 40px;
+            border-radius: 15px;
+            width: 500px;
+            text-align: center;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+            font-size: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 500;
+        }
+
+        .business-card1:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.8);
+        }
+
+        .business-card2 {
+            position: absolute;
+            top: 210%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #64441a, #775219, #694413);
+            color: #dfdfdf;
+            padding: 40px;
+            border-radius: 15px;
+            width: 500px;
+            text-align: center;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+            font-size: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 500;
+                    }
+
+   
+
+        .business-card2:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.8);
+        }
+
+        .fb-link {
+            position: absolute;
+            bottom: 200px;
+            right: 500px;
+            z-index: 1000;
+        }
+
+        .fb-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: brightness(0.9);
+        }
+
+        .fb-icon:hover {
+            transform: scale(1.1);
+            filter: brightness(1.4);
+        }
+
+        .wa-link {
+            position: absolute;
+            bottom: 200px;
+            right: 400px;
+            z-index: 1000;
+        }
+
+        .wa-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: brightness(0.9);
+        }
+
+        .wa-icon:hover {
+            transform: scale(1.1);
+            filter: brightness(1.4);
+        }
+
+        .info {
+            position: absolute;
+            top: 40%;
+            margin-left: 60%;
+            transform: translateY(-50%);
+            text-align: left;
+        }
+
+        .info h1 {
+            font-size: 36px;
+            color: #694c1f;
+            margin: 0;
+        }
+
+        .info h2 {
+            font-size: 24px;
+            color: #1f1e1e;
+            margin: 5px 0 0 0;
+        }
+
+        .wa-number {
+            color: #111;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .wa-number:hover {
+            text-decoration: underline;
+        }
+
+        .portfolio-btn {
+            display: inline-block;
+            position: absolute;
+            top: 400px;
+            left: 1000px;
+            padding: 12px 25px;
+            background-color: #111;
+            color: #f5d76e;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .portfolio-btn:hover {
+            background-color: #222;
+            transform: scale(1.05);
+        }
+
+        .info2 {
+            position: absolute;
+            top: 110%;
+            /* Align with 2nd card */
+            left: 10%;
+            /* Left side */
+            transform: translateY(-50%);
+            text-align: left;
+        }
+
+        .info2 h1 {
+            font-size: 36px;
+            color: #1a1a1d;
+            /* Blue theme to match card */
+        }
+
+        .info2 h2 {
+            font-size: 24px;
+            color: #272626;
+        }
+
+        .fb-link2 {
+            position: absolute;
+            top: 150px;
+            left: 0;
+        }
+
+        .fb-icon2 {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .fb-icon2:hover {
+            transform: scale(1.1);
+            filter: brightness(1.4);
+        }
+
+        .wa-link2 {
+            position: absolute;
+            top: 150px;
+            left: 70px;
+        }
+
+        .wa-icon2 {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .wa-icon2:hover {
+            transform: scale(1.1);
+            filter: brightness(1.4);
+        }
+
+        .profile-pic {
+            width: 120px;
+            /* size of the circle */
+            height: 120px;
+            border-radius: 50%;
+            /* makes it round */
+            object-fit: cover;
+            /* crops image nicely */
+            border: 4px solid #fff;
+            /* optional border */
+            margin-bottom: 20px;
+        }
+
+        .profile-pic {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .fb-link2 {
+            position: absolute;
+            bottom: 200px;
+            right: 500px;
+            z-index: 1000;
+        }
+
+        .fb-icon2 {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: brightness(0.9);
+        }
+
+        .fb-icon2:hover {
+            transform: scale(1.1);
+            filter: brightness(1.4);
+        }
+
+        .wa-link {
+            position: absolute;
+            bottom: 200px;
+            right: 400px;
+            z-index: 1000;
+        }
+
+        .wa-icon2 {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: brightness(0.9);
+        }
+
+        .wa-icon:hover {
+            transform: scale(1.1);
+            filter: brightness(1.4);
+        }
+
+        .info3 {
+            position: absolute;
+            top: 210%;
+            margin-left: 60%;
+            transform: translateY(-50%);
+            text-align: left;
+        }
+
+        .info3 h1 {
+            font-size: 36px;
+            color: #554715;
+            margin: 0;
+        }
+
+        .info3 h2 {
+            font-size: 24px;
+            color: #252525;
+            margin: 5px 0 0 0;
+        }
+
+        .wa-number2 {
+            color: #111;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .wa-number2:hover {
+            text-decoration: underline;
+        }
+
+        .portfolio-btn {
+            display: inline-block;
+            position: absolute;
+            top: 400px;
+            left: 1000px;
+            padding: 12px 25px;
+            background-color: #111;
+            color: #e4e2df;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .portfolio-btn:hover {
+            background-color: #222;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="business-card">
+        <img src="New folder/ab.jpg" alt="Abdullah" class="profile-pic">
+        <h2>Abdullah Forhad</h2>
+        <p>Owner of the Brand & leader of Community</p>
+        <p>Always active: forhadalpha08@gmail.com</p>
+        <p>or forhadgp08@gmail.com</p>
+        <p>WhatsApp:
+            <a class="wa-number" href="https://wa.me/8801342900364?text=Hello%2C%20I%20want%20to%20contact%20you"
+                target="_blank">
+                +880 1342-900364
+            </a>
+        </p>
+    </div>
+
+    <div class="business-card1">
+        <img src="New folder (2)/at.jpg" alt="Atif" class="profile-pic">
+        <h2>Atif Ullah</h2>
+        <p>15% Owner of marketplace, Manager</p>
+        <p>Always active: atif@gmail.com</p>
+        <p>or atif@gmail.com</p>
+        <p>WhatsApp:
+            <a class="wa-number" href="https://wa.me/8801838786023?text=Hello%2C%20I%20want%20to%20contact%20you"
+                target="_blank">
+                +880 1864-407765            </a>
+        </p>
+    </div>
+
+
+    <div class="business-card2">
+        <img src="New folder (3)/am.jpg" alt="hamza" class="profile-pic">
+        <h2>Jahid</h2>
+        <p>15% Owner of marketplace, Backend Developer</p>
+        <p>Always active: jahid@gmail.com</p>
+        <p>or jahid@gmail.com</p>
+        <p>WhatsApp:
+            <a class="wa-number" href="https://wa.me/8801838786023?text=Hello%2C%20I%20want%20to%20contact%20you"
+                target="_blank">
+                +880 1976-141628
+            </a>
+        </p>
+    </div>
+
+    <a href="https://www.facebook.com/profile.php?id=61580779565120&sk=friends_mutual" target="_blank" class="fb-link">
+        <img src="fb.png" alt="Facebook" class="fb-icon">
+    </a>
+
+    <a href="https://wa.me/8801342900364?text=Hello%2C%20I%20want%20to%20contact%20you%20about%20your%20marketplace"
+        target="_blank" class="wa-link">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" class="wa-icon">
+    </a>
+
+    <a href="https://forhad2008.github.io/portfolio/" target="_blank" class="portfolio-btn">
+        Visit Portfolio</a>
+
+    <div class="info">
+        <h1>Hi, I'm Abdullah 👋</h1>
+        <h2>Click the icons to contact me on Facebook or WhatsApp</h2>
+    </div>
+
+    <div class="info2">
+        <h1>Hi, I'm Atif 👋</h1>
+        <h2>Click the icons to contact me</h2>
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/atif01001101" target="_blank" class="fb-link2">
+            <img src="fb.png" alt="Facebook" class="fb-icon2">
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/8801864407765?text=Hello%2C%20I%20want%20to%20contact%20you" target="_blank"
+            class="wa-link2">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" class="wa-icon2">
+        </a>
+    </div>
+
+    <div class="info3">
+        <h1>Hi, I'm Jahid 👋</h1>
+        <h2>Click the icons to contact me</h2>
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/sayed.bai.14?rdid=yiHFQwMEDh6NOxFr&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F17fhEVjq6c%2F#" target="_blank" class="fb-link2">
+            <img src="fb.png" alt="Facebook" class="fb-icon2">
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/8801976141628?text=Hello%2C%20I%20want%20to%20contact%20you" target="_blank"
+            class="wa-link2">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" class="wa-icon2">
+        </a>
+    </div>
+
+
+</body>
+
+</html>

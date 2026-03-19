@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Oorca Marketplace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+
+        <div class="logo"><img src="orca.png" alt="Anew" /></div>
+
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="sm.html#about-us">ABOUT</a>
+            <a href="#services">SERVICE</a>
+            <a href="#design">DESIGN</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+
+        <!-- SEARCH WITH HIDDEN SUB MENU -->
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search products..." onkeyup="showSuggestions()">
+            <button onclick="goSearch()">Search</button>
+
+            <!-- Hidden dropdown -->
+            <div class="search-menu" id="searchMenu">
+                <div onclick="goPage('business-card.html')">Business Card</div>
+                <div onclick="goPage('logo.html')">Logo</div>
+                <div onclick="goPage('banner.html')">Banner</div>
+                <div onclick="goPage('resume2.html')">Resume</div>
+                <div onclick="goPage('sc.html')">Social media cover</div>
+
+            </div>
+        </div>
+
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero" id="home">
+
+        <div class="content">
+            <h1>
+                Modern Design <br>
+                <span>Developer</span><br>
+                Brand.
+            </h1>
+
+            <p>
+                A premium digital marketplace where creators buy and sell
+                high-quality ready-made designs and digital products.
+            </p>
+
+            <button class="join-btn" onclick="goPage('index.html')">Visit Our Digital-Art Collections</button>
+        </div>
+
+        <!-- LOGIN BOX -->
+        <div class="login-box" id="login">
+            <h2>Member Login</h2>
+
+            <input type="email" id="email" placeholder="Enter Email">
+            <input type="password" id="password" placeholder="Enter Password">
+
+            <button class="login-btn" onclick="login()">Login</button>
+
+            <p class="signup">
+                Don’t have an account?<br>
+                <a href="#" onclick="signup()">Sign up here</a>
+            </p>
+
+            <p class="social">Log in with</p>
+
+            <div class="icons">
+                <span onclick="socialLogin('Facebook')">f</span>
+                <span onclick="socialLogin('Instagram')">i</span>
+                <span onclick="socialLogin('Twitter')">t</span>
+                <span onclick="socialLogin('Google')">G</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ================= PRODUCTS PREVIEW ================= -->
+    <section class="products" id="design">
+        <h2>Popular Digital Products</h2>
+    
+        <div class="product-wrapper">
+            <div class="product-grid">
+                <div class="product" onclick="goPage('business-card.html')">
+                    <h3>Business Card Designs</h3>
+                    <p>Premium branding templates</p>
+                
+                    <img src="bu.jpeg" alt="Business Card Thumbnail" class="product-thumb">
+                </div>
+                
+    
+                <div class="product" onclick="goPage('banner.html')">
+                    <h3>Banner Designs</h3>
+                    <p>Premium branding templates</p>
+                
+                    <img src="ban.jpeg" alt="Business Card Thumbnail" class="product-thumb">
+                </div>
+                
+    
+                <div class="product" onclick="goPage('sc.html')">
+                    <h3>Social Media Cover</h3>
+                    <p>Premium branding templates</p>
+                
+                    <img src="sc.jpeg" alt="Business Card Thumbnail" class="product-thumb">
+                </div>
+                
+    
+                <div class="product" onclick="goPage('business-card.html')">
+                    <h3>Mockup Designs</h3>
+                    <p>Premium branding templates</p>
+                
+                    <img src="bg.jpg" alt="Business Card Thumbnail" class="product-thumb">
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer" id="contact">
+        <p>© 2026 Oorca Marketplace. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

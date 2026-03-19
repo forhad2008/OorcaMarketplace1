@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OorcaMarketplace</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            /* পুরো ভিউপোর্ট উচ্চতা */
+            font-family: Arial, sans-serif;
+            background: #0b0b0b;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: #111;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            font-size: 13px;
+        }
+
+        .main-content {
+            display: flex;
+            width: 100%;
+            min-height: 2500px;
+            /* ভিউপোর্ট উচ্চতা থেকে হেডার বাদ */
+        }
+
+        /* Left side image box */
+        .image-box {
+            width: 1200px;
+            /* fixed width */
+            height: 100%;
+            /* পুরো কন্টেন্টের উচ্চতা অনুযায়ী */
+            overflow: hidden;
+            margin-left: 0%;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* পুরো বক্স ভর্তি হবে */
+        }
+
+        .folder-container {
+            margin-top: 20%;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 300px;
+            /* half of 600px */
+            height: 400px;
+            /* half of 800px */
+            perspective: 1000px;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        .folder-container:hover {
+            transform: scale(1.03) rotateX(2deg);
+        }
+
+        /* Folder back */
+        .folder-back {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background: #ff9800;
+            border-radius: 7px;
+            /* half of 14px */
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Folder tab */
+        .folder-back::before {
+            content: "";
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 60px;
+            /* half of 120px */
+            height: 17.5px;
+            /* half of 35px */
+            background: #ff9800;
+            border-radius: 4px 4px 0 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Resume (half visible) */
+        .resume {
+            position: absolute;
+            top:
+                -10px;
+            /* half of -10px */
+            left: 10px;
+            /* half of 25px */
+            width: 280px;
+            /* half of 600px */
+            height: 400px;
+            /* half of 760px */
+            background: url('2.jpg') center/cover no-repeat;
+            border-radius: 6px;
+            /* half of 12px */
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            transition: transform 1s ease;
+            z-index: 2;
+            transform: translateY(0px);
+            overflow: none;
+        }
+
+        .resume::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+            background-size: 8px 8px;
+            pointer-events: none;
+        }
+
+        /* Folder front flap */
+        .folder-front {
+            position: fixed;
+            top: 250px;
+            left: 10px;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 125px;
+            /* half of 250px */
+            background: #f7a733;
+            border-radius: 0 0 7px 7px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15),
+                inset 0 1.5px 3px rgba(255, 255, 255, 0.25);
+            transition: transform 0.6s ease;
+            z-index: 3;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            font-weight: 600;
+            color: white;
+            font-size: 25px;
+            /* half of 20px */
+            padding-bottom: 7px;
+            /* half of 15px */
+        }
+
+        /* Hover animation */
+        .folder-container:hover .resume {
+            transform: translateY(-60px);
+            /* half of -80px */
+        }
+
+        .folder-container:hover .folder-front {
+            transform: translateY(20px 20px);
+        }
+
+        /* half of 40px */
+        .folder-container1 {
+            margin-top: 20%;
+            margin-left: 25%;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 300px;
+            /* half of 600px */
+            height: 400px;
+            /* half of 800px */
+            perspective: 1000px;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        .folder-container1:hover {
+            transform: scale(1.03) rotateX(2deg);
+        }
+
+        /* Folder back */
+        .folder-back1 {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background: #ff9800;
+            border-radius: 7px;
+            /* half of 14px */
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Folder tab */
+        .folder-back1::before {
+            content: "";
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 60px;
+            /* half of 120px */
+            height: 17.5px;
+            /* half of 35px */
+            background: #ff9800;
+            border-radius: 4px 4px 0 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Resume (half visible) */
+        .resume1 {
+            position: absolute;
+            top:
+                -10px;
+            /* half of -10px */
+            left: 10px;
+            /* half of 25px */
+            width: 280px;
+            /* half of 600px */
+            height: 400px;
+            /* half of 760px */
+            background: url('1.jpg') center/cover no-repeat;
+            border-radius: 6px;
+            /* half of 12px */
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            transition: transform 1s ease;
+            z-index: 2;
+            transform: translateY(0px);
+            overflow: none;
+        }
+
+        .resume1::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+            background-size: 8px 8px;
+            pointer-events: none;
+        }
+
+        /* Folder front flap */
+        .folder-front1 {
+            position: fixed;
+            top: 250px;
+            left: 10px;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 125px;
+            /* half of 250px */
+            background: #f7a733;
+            border-radius: 0 0 7px 7px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15),
+                inset 0 1.5px 3px rgba(255, 255, 255, 0.25);
+            transition: transform 0.6s ease;
+            z-index: 3;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            font-weight: 600;
+            color: white;
+            font-size: 25px;
+            /* half of 20px */
+            padding-bottom: 7px;
+            /* half of 15px */
+        }
+
+        /* Hover animation */
+        .folder-container1:hover .resume1 {
+            transform: translateY(-60px);
+            /* half of -80px */
+        }
+
+        .folder-container1:hover .folder-front1 {
+            transform: translateY(20px 20px);
+            /* half of 40px */
+        }
+
+        /* half of 40px */
+        .folder-container2 {
+            margin-top: 20%;
+            margin-left: 50%;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 300px;
+            /* half of 600px */
+            height: 400px;
+            /* half of 800px */
+            perspective: 1000px;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        .folder-container2:hover {
+            transform: scale(1.03) rotateX(2deg);
+        }
+
+        /* Folder back */
+        .folder-back2 {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background: #ff9800;
+            border-radius: 7px;
+            /* half of 14px */
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Folder tab */
+        .folder-back2::before {
+            content: "";
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 60px;
+            /* half of 120px */
+            height: 17.5px;
+            /* half of 35px */
+            background: #ff9800;
+            border-radius: 4px 4px 0 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Resume (half visible) */
+        .resume2 {
+            position: absolute;
+            top:
+                -10px;
+            /* half of -10px */
+            left: 10px;
+            /* half of 25px */
+            width: 280px;
+            /* half of 600px */
+            height: 400px;
+            /* half of 760px */
+            background: url('3.jpg') center/cover no-repeat;
+            border-radius: 6px;
+            /* half of 12px */
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            transition: transform 1s ease;
+            z-index: 2;
+            transform: translateY(0px);
+            overflow: none;
+        }
+
+        .resume2::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+            background-size: 8px 8px;
+            pointer-events: none;
+        }
+
+        /* Folder front flap */
+        .folder-front2 {
+            position: fixed;
+            top: 250px;
+            left: 10px;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 125px;
+            /* half of 250px */
+            background: #f7a733;
+            border-radius: 0 0 7px 7px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15),
+                inset 0 1.5px 3px rgba(255, 255, 255, 0.25);
+            transition: transform 0.6s ease;
+            z-index: 3;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            font-weight: 600;
+            color: white;
+            font-size: 25px;
+            /* half of 20px */
+            padding-bottom: 7px;
+            /* half of 15px */
+        }
+
+        /* Hover animation */
+        .folder-container2:hover .resume2 {
+            transform: translateY(-60px);
+            /* half of -80px */
+        }
+
+        .folder-container2:hover .folder-front2 {
+            transform: translateY(20px 20px);
+            /* half of 40px */
+        }
+
+        .fb-link {
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .fb-icon {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .fb-icon:hover {
+            transform: scale(1.1);
+            filter: brightness(1.3);
+        }
+
+        /* Right content */
+        .right-content {
+            margin-left: 10%;
+            margin-top: 10%;
+            flex-grow: 2;
+            padding: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Oorca</h1>
+    </header>
+
+    <div class="main-content">
+        <!-- Left: full height image -->
+        <div class="image-box">
+            <img src="privew11.jpg" alt="Anew">
+        </div>
+
+        <div class="folder-container">
+            <div class="folder-back"></div>
+
+            <div class="resume">
+                <!-- You can place actual content here if you want text -->
+            </div>
+
+            <div class="folder-front">Put your cursor here</div>
+        </div>
+        <div class="folder-container1">
+            <div class="folder-back1"></div>
+
+            <div class="resume1">
+                <!-- You can place actual content here if you want text -->
+            </div>
+
+            <div class="folder-front1">Put your cursor here</div>
+        </div>
+        <div class="folder-container2">
+            <div class="folder-back2"></div>
+
+            <div class="resume2">
+                <!-- You can place actual content here if you want text -->
+            </div>
+
+            <div class="folder-front2">Put your cursor here</div>
+        </div>
+
+        <!-- Right: content area -->
+        <div class="right-content">
+            <h2>Welcome to Visit</h2>
+            <p>This Resume is a cool creation.</p>
+            <p>color used: Blue, Black, White.</p>
+            <h1>Regular price: $5</h1>
+            <h2>Extended price: $750</h2>
+            <p>After you buy it for 750$ you become the only owner of this.</p><br><br><br>
+            <h2>Designed By: Abdullah Forhad</h2>
+            <br><br>
+            <h2>Contact to buy: </h2>
+            <p>WhatsApp: +8801342900364</p>
+            <p>Email: forhadgp08@gmail.com</p>
+            <!-- Facebook Icon -->
+            <a href="https://www.facebook.com/profile.php?id=61580779565120&sk=friends_mutual" target="_blank"
+                class="fb-link">
+                <img src="fb.png" alt="Facebook" class="fb-icon">
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

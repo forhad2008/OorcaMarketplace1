@@ -1,0 +1,119 @@
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            /* পুরো ভিউপোর্ট উচ্চতা */
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle at top left, #2b1a08, #0f0a04 45%),
+                    linear-gradient(135deg, #6a3b10, #2b1607, #120a04);    color: #fff;
+        }
+
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: #301607;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            font-size: 13px;
+        }
+
+
+        .main-content {
+            display: flex;
+            width: 100%;
+            min-height: 2500px;
+            /* ভিউপোর্ট উচ্চতা থেকে হেডার বাদ */
+        }
+
+        /* Left side image box */
+        .image-box {
+            width: 600px;
+            /* fixed width */
+            height: 100%;
+            /* পুরো কন্টেন্টের উচ্চতা অনুযায়ী */
+            overflow: hidden;
+            margin-left: 10%;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* পুরো বক্স ভর্তি হবে */
+        }
+
+        .fb-link {
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .fb-icon {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .fb-icon:hover {
+            transform: scale(1.1);
+            filter: brightness(1.3);
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #5f3d1c, #573010);
+            color: #ffffff;
+
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+
+            box-shadow: 0 10px 25px rgba(36, 36, 35, 0.35);
+            transition: all 0.3s ease;
+            margin-top: 40px;
+        }
+
+        /* Hover effect */
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(12, 12, 12, 0.5);
+            background: linear-gradient(135deg, #dbdbdb, #dfdfdf);
+            color: #000000;
+        }
+
+        /* Click effect */
+        .download-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* Mobile friendly */
+        @media (max-width: 480px) {
+            .download-btn {
+                padding: 12px 22px;
+                font-size: 15px;
+            }
+        }
+
+
+        /* Right content */
+        .right-content {
+            flex-grow: 1;
+            padding: 40px;
+        }
+
+        .main-content {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+        }

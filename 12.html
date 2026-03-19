@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OorcaMarketplace</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            /* পুরো ভিউপোর্ট উচ্চতা */
+            font-family: Arial, sans-serif;
+            background: #0b0b0b;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: #111;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            font-size: 13px;
+        }
+
+        .main-content {
+            display: flex;
+            width: 100%;
+            min-height: 2500px;
+            /* ভিউপোর্ট উচ্চতা থেকে হেডার বাদ */
+        }
+
+        /* Left side image box */
+        .image-box {
+            width: 600px;
+            /* fixed width */
+            height: 100%;
+            /* পুরো কন্টেন্টের উচ্চতা অনুযায়ী */
+            overflow: hidden;
+            margin-left: 10%;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* পুরো বক্স ভর্তি হবে */
+        }
+
+        .image-box2 {
+            width: 600px;
+            /* fixed width */
+            height: 100%;
+            /* পুরো কন্টেন্টের উচ্চতা অনুযায়ী */
+            overflow: hidden;
+            margin-left: -30%;
+            margin-top: 33%;
+        }
+
+        .image-box2 img {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            /* পুরো বক্স ভর্তি হবে */
+        }
+
+        .fb-link {
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .fb-icon {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .fb-icon:hover {
+            transform: scale(1.1);
+            filter: brightness(1.3);
+        }
+
+        /* Right content */
+        .right-content {
+            flex-grow: 1;
+            padding: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo"><img src="orca.png" alt="Anew" /></div>
+    </header>
+
+    <div class="main-content">
+        <!-- Left: full height image -->
+        <div class="image-box">
+            <img src="jpg/12.1.jpg" alt="Anew">
+        </div>
+        <div class="image-box2">
+            <img src="jpg/12.jpg" alt="Anew">
+        </div>
+
+        <!-- Right: content area -->
+        <div class="right-content">
+            <h2>Welcome to Visit</h2>
+            <p>This banners are used for sponsor.</p>
+            <p>color used: Orange, Black, White.</p>
+                                       <p>cutting area: none.</p>
+                                        <p>Main size: 70x40 inch</p>
+            <h1>Regular License: $8</h1>
+            <h2>Extended License: $1050</h2>
+            <p>After you buy it for $1050 you become the only owner of this.</p><br><br><br>
+            <h2>Designed By: Abdullah Forhad</h2>
+            <br><br>
+            <h2>Contact to buy: </h2>
+            <p>WhatsApp: +8801342900364</p>
+            <p>Email: forhadgp08@gmail.com</p>
+            <!-- Facebook Icon -->
+            <a href="https://www.facebook.com/profile.php?id=61580779565120&sk=friends_mutual" target="_blank"
+                class="fb-link">
+                <img src="fb.png" alt="Facebook" class="fb-icon">
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

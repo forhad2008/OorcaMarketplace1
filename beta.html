@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OorcaMarketplace - Page 1</title>
+    <link rel="preload" as="image" href="jpg/12.webp">
+    <link rel="preload" as="image" href="jpg/12.1.webp">
+    <link rel="preload" as="image" href="jpg1/22.2.webp">
+    <link rel="preload" as="image" href="jpg1/22.3.webp">
+
+    <style>
+        :root {
+            --dark: #1c1c1d;
+            --panel: #313233;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle at top left, #2b1a08, #0f0a04 45%),
+                linear-gradient(135deg, #6a3b10, #2b1607, #120a04);
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 28px;
+            background-color: rgba(36, 19, 5, 0.99);
+            /* 0.5 = 50% opacity */
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        header h1 {
+            margin-left: -21%;
+            font-size: 25px;
+            letter-spacing: 1px;
+        }
+
+        header h2 {
+            font-size: 17px;
+            color: #643414;
+            margin-left: -50px;
+            padding: 4px 8px;
+            background: white;
+        }
+
+        .logo {
+            width: 15%;
+            height: 15%;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        nav a {
+            padding: 4px 10px;
+
+            margin: 10px 18px;
+            text-decoration: none;
+            color: #ddd;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #ececec;
+            color: #000;
+        }
+
+        header ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        header ul li {
+            display: inline-block;
+        }
+
+        header ul li a {
+            text-decoration: none;
+            color: #f1f1f1;
+            background: linear-gradient(135deg, #7e501b, #814d11, #6d340f);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: .3s ease;
+        }
+
+        header ul li a:hover {
+            background: linear-gradient(135deg, #5f5b4d, #413a1f, #161512);
+            color: #fcfcfc;
+        }
+
+        .btn {
+            background: #fff;
+            color: #000;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: .2s ease;
+        }
+
+        .btn:hover {
+            background: #ddd;
+        }
+
+        .see-more-btn {
+            position: absolute;
+            top: 500px;
+            left: 1000px;
+            background-color: #ffffff;
+            color: #000000;
+            padding: 10px 20px;
+            border: 5px solid #424344;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: .3s;
+        }
+
+        .see-more-btn:hover {
+            background-color: #c6dbd7;
+        }
+
+        .alpha-btn {
+            position: absolute;
+            top: 550px;
+            left: 1000px;
+            background-color: #141414;
+            color: #f1f1f1;
+            padding: 5px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: .3s;
+            background: #1f1e1e;
+        }
+
+        .alpha-btn:hover {
+            background-color: #6d380d;
+        }
+
+        .beta-btn {
+            position: absolute;
+            top: 550px;
+            left: 1200px;
+            background-color: #ffffff;
+            color: #111111;
+            padding: 5px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: .3s;
+        }
+
+        .beta-btn:hover {
+            background-color: #f5f5f59a;
+            color: #000;
+        }
+
+        /* HERO COMBINED */
+        .hero-combined {
+            display: flex;
+            gap: 28px;
+            padding: 48px 28px;
+            align-items: stretch;
+            background: radial-gradient(circle at top left, #2b1a08, #0f0a04 45%),
+                linear-gradient(135deg, #6a3b10, #2b1607, #120a04);
+        }
+
+        .hero {
+            flex: 1;
+            min-height: 320px;
+            border-radius: 12px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)), url('bg.jpg') center/cover no-repeat;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .6);
+            color: #fff;
+        }
+
+        .hero h2 {
+            font-size: 30px;
+            margin: 0 0 12px;
+            color: #000;
+            background-color: white;
+            padding: 0px 10px;
+            border-radius: 10px;
+        }
+
+        .hero p {
+            margin: 0 0 16px;
+            background: linear-gradient(to right, #6b4d16, #6b4711);
+            color: #e9e9e9;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        /* SEARCH BAR */
+        .search-bar {
+            margin-top: 16px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            position: relative;
+        }
+
+        .search-bar input {
+            padding: 10px 12px;
+            border-radius: 6px;
+            border: none;
+            width: 220px;
+            font-size: 14px;
+        }
+
+        .search-bar .btn {
+            flex-shrink: 0;
+            width: auto;
+            min-width: 100px;
+        }
+
+        .suggestions {
+            position: absolute;
+            top: 45px;
+            left: 0;
+            width: 100%;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 6px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 100;
+            display: none;
+        }
+
+        .suggestions a {
+            display: block;
+            padding: 8px 12px;
+            text-decoration: none;
+            color: #fff;
+            border-bottom: 1px solid #222;
+        }
+
+        .suggestions a:hover {
+            background: #333;
+        }
+
+        /* RIGHT PANEL (hero1) */
+        .hero1 {
+            flex: 1;
+            min-height: 320px;
+            border-radius: 12px;
+            padding: 32px;
+            background: linear-gradient(to right, #381f09c7, #362109c7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 8px;
+            color: #e0e0e0;
+        }
+
+        .hero1 h2 {
+            margin: 0 0 8px;
+            font-size: 24px;
+        }
+
+        .hero1 p {
+            margin: 0;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width:900px) {
+            .hero-combined {
+                flex-direction: column;
+                padding: 20px;
+                gap: 18px;
+            }
+
+            .hero,
+            .hero1 {
+                min-height: 220px;
+                padding: 20px;
+            }
+
+            .search-bar {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .search-bar input {
+                width: 100%;
+                max-width: 320px;
+            }
+        }
+
+        /* PRODUCTS */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            perspective: 1200px;
+        }
+
+        .product {
+            width: 250px;
+            height: 350px;
+            perspective: 1200px;
+            margin: 0 auto;
+        }
+
+        .product a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .product-inner {
+            position: relative;
+            width: 95%;
+            height: 80%;
+        }
+
+        /* FRONT & BACK */
+        .product-front,
+        .product-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease;
+            /* only opacity for fast transition */
+            backface-visibility: hidden;
+            /* improves performance */
+        }
+
+        /* FRONT */
+        .product-front {
+            opacity: 1;
+            /* visible initially */
+        }
+
+        /* BACK */
+        .product-back {
+            opacity: 0;
+            /* hidden initially */
+            pointer-events: none;
+            /* can't click when hidden */
+        }
+
+        /* HOVER EFFECT */
+        .product:hover .product-back {
+            opacity: 1;
+            /* show back */
+            pointer-events: auto;
+            /* make clickable */
+        }
+
+        .product:hover .product-front {
+            opacity: 0;
+            /* hide front */
+        }
+
+        /* FRONT IMAGE & TEXT */
+        .product-front img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product-front h3 {
+            margin: 10px 0 5px;
+            font-size: 16px;
+        }
+
+        .product-front .price {
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+
+        /* BACK IMAGE & BUTTON */
+        .product-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product-back .btn {
+            position: absolute;
+            bottom: 10px;
+        }
+
+        /* CART */
+        .cart {
+            position: fixed;
+            right: 20px;
+            top: 70px;
+            width: 300px;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 15px;
+            display: none;
+            z-index: 20;
+        }
+
+        .cart h3 {
+            margin-top: 0;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        /* HOVER CARDS */
+        .hover-cards {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 40px;
+        }
+
+        .hover-cards .item {
+            position: relative;
+            width: 350px;
+            height: 200px;
+            background-color: rgba(73, 71, 71, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all .4s ease;
+            cursor: pointer;
+        }
+
+        .hover-cards .item:hover {
+            height: 400px;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .hover-cards .layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 25px;
+            text-align: center;
+            transition: all .4s ease;
+        }
+
+        .hover-cards .layer h3 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .hover-cards .layer p {
+            font-size: .9rem;
+            color: #fff;
+            line-height: 1.5;
+            opacity: 0;
+            max-height: 0;
+            transition: opacity .4s ease, max-height .4s ease;
+        }
+
+        .hover-cards .item:hover .layer p {
+            opacity: 1;
+            max-height: 200px;
+        }
+
+
+        .hover-cards .item:hover .layer span {
+            transform: rotate(20deg);
+        }
+
+        .hover-cards .item h4 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #1f1f1e, #272725, #2e2d2c);
+            color: #5c5c5c;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 10px;
+            letter-spacing: 1px;
+            border-radius: 0 0 20px 20px;
+            transition: (background).3s ease;
+        }
+
+        .hover-cards .item:hover h4 {
+            background: linear-gradient(135deg, #202020, #272726, #363634);
+        }
+
+        @media (max-width:768px) {
+            .hover-cards {
+                flex-direction: column;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+            border-top: 1px solid #222;
+        }
+
+        /* Pagination bar (simple) */
+        .pagination {
+            text-align: center;
+            margin: 20px 0 60px;
+        }
+
+        .pagination a {
+            color: white;
+            background: #222;
+            padding: 8px 14px;
+            margin: 6px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .pagination a:hover {
+            background: #46290f;
+            color: #fff;
+        }
+
+        .pagination .current {
+            background: #442609;
+            color: #fff;
+        }
+
+        /* Clean dropdown like Envato */
+        .suggestions {
+            position: absolute;
+            background: rgba(43, 43, 43, 0.9);
+            width: 100%;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            max-height: 220px;
+            overflow-y: auto;
+            display: none;
+            z-index: 999;
+        }
+
+        .suggestion-item {
+            display: block;
+            padding: 10px 14px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #222;
+            border-bottom: 1px solid #eee;
+        }
+
+        .suggestion-item:hover {
+            background: #f3f3f3;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo"><img src="orca.png" alt="Anew" /></div>
+
+
+        <nav>
+            <a href="#">Business card</a>
+            <a href="#">Logo</a>
+            <a href="#">Resume</a>
+            <a href="#">Banner</a>
+        </nav>
+
+        <div style="display:flex; align-items:center; gap:12px;">
+        
+            <button id="cartButton" class="btn">Cart</button>
+        </div>
+    </header>
+
+    <section class="hero-combined">
+        <div class="hero" id="heroMain">
+            <h2>Unleash Your Business</h2>
+            <p>Premium collection of design for business.</p>
+            <button class="btn" onclick="scrollToProducts()">Shop Now</button>
+
+            <!-- SEARCH BOX -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search products...">
+                <div class="suggestions" id="suggestions"></div>
+
+            </div>
+
+        </div>
+
+        <div class="hero1" id="heroWhy">
+            <h2>Why will you buy products from Oorca?</h2>
+            <p>1. Ready-made Product + 3d presentation</p>
+            <p>2. Limited but Professional collection</p>
+            <p>3. Easy to edit</p>
+            <p>4. instant delivery after collect the value of Product</p>
+            <p>5. Free editing support</p>
+            <p>6. Free color adjustments help</p>
+        </div>
+    </section>
+
+    <a href="sm.html"><button class="see-more-btn">See More</button></a>
+    <a href="alpha.html"><button class="alpha-btn">Alpha</button></a>
+    <a href="beta.html"><button class="beta-btn">Beta</button></a>
+
+
+    <section class="products" id="productList"></section>
+
+    <!-- Pagination links (linking to separate files) -->
+    <div class="pagination" id="staticPagination">
+        <a href="\Oorca marketplace/beta.html" class="current">1</a>
+    </div>
+
+    <!-- Hover Cards -->
+    <div class="hover-cards container">
+        <div class="item">
+            <div class="layer">
+                <h3>About us</h3>
+                <p>Oorca is a digital brand and online marketplace where creators can buy and sell high-quality,
+                    ready-made
+                    designs and digital product. We focus on professional, easy-to-edit products with unique limited
+                    collections, helping
+                    designers and businesses save time while maintaining top-quality visuals. Our support team is
+                    always ready to assist with editing, color adjustments, and guidance for using our products
+                    effectively.
+                </p>
+                <span><i class="fa-solid fa-lightbulb"></i></span>
+            </div>
+            <h4>Card 1</h4>
+        </div>
+
+        <div class="item">
+            <div class="layer">
+                <h3>Design</h3>
+                <p>Design is the process of creating solutions that combine functionality, aesthetics, and usability.
+                    It’s about planning and arranging elements—like color, shape, layout, and typography—to communicate
+                    ideas effectively and provide a seamless experience.</p>
+                <span><i class="fa-solid fa-pen-nib"></i></span>
+            </div>
+            <h4>Card 2</h4>
+        </div>
+
+        <div class="item">
+            <div class="layer">
+                <h3>How to buy?</h3>
+                <p>To buy product from oorca you have to contact the authority of oorca.
+                    With each product you will get the whatsapp number, email address and facebook id.
+                    The bestway to contact is whatsapp(always active). You will get an bank account number.
+                    After collect the value of the chosen product and verify the account number, you will
+                    get your pruduct in whatsapp or email.
+
+                </p>
+                <span><i class="fa-solid fa-rocket"></i></span>
+            </div>
+            <h4>Card 3</h4>
+        </div>
+    </div>
+
+    <!-- Cart -->
+    <div class="cart" id="cartBox">
+        <h3>Your Cart</h3>
+        <div id="cartItems"></div>
+        <hr>
+        <p>Total: $<span id="cartTotal">0</span></p>
+        <button class="btn" onclick="clearCart()">Clear Cart</button>
+    </div>
+
+    <footer>Oorca design planet</footer>
+
+
+    <script>
+        // Cart array
+        const cart = [];
+
+        // DOM references
+        const productList = document.getElementById('productList');
+        const cartBox = document.getElementById('cartBox');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        const searchInput = document.getElementById('searchInput');
+        const suggestions = document.getElementById('suggestions');
+
+        // Categories for search dropdown
+        const categories = [
+            { name: 'Business card', link: '/Oorca marketplace/business-card.html' },
+            { name: 'Banner', link: 'Oorca marketplace/banner.html' },
+            { name: 'Logo', link: 'Oorca marketplace/logo.html' },
+            { name: 'Resume', link: 'Oorca marketplace/resume2.html' },
+            { name: 'Landscape', link: 'Oorca marketplace/landscape.html' }
+        ];
+
+        // Products array
+        const products = [
+            { id: 1, name: 'Modern luxury Business card/ pro-1', price: 6, front: 'jpg/1.2.webp', back: 'jpg/1.3.webp', link: '1.html' },
+            { id: 2, name: 'Modern Business card /pro-2', price: 5, front: 'jpg/2.1.webp', back: 'jpg/2.webp', link: '2.html' },
+ 
+            { id: 4, name: 'Modern business card / pro-4', price: 5, front: 'jpg/4.webp', back: 'jpg/4.3.webp', link: '4.html' },
+              { id: 6, name: 'simple professional business card v.01 / pro-6', price: 7, front: 'jpg/6.2.webp', back: 'jpg/6.3.webp', link: '6.html' },
+            { id: 7, name: 'Radio type business card / pro-7', price: 7, front: 'jpg/7.webp', back: 'jpg/7.1.webp', link: '7.html' },
+            { id: 8, name: 'Digital business card / pro-8', price: 6, front: 'jpg/8.webp', back: 'jpg/8.2.webp', link: '8.html' },
+            { id: 9, name: 'Simple professional business card / pro-9', price: 5, front: 'jpg/9.webp', back: 'jpg/9.3.webp', link: '9.html' },
+            { id: 10, name: 'Simple professional Business card / pro-10', price: 5, front: 'jpg/10.webp', back: 'jpg/10.2.webp', link: '10.html' },
+            { id: 11, name: 'Simple design Business card / pro-11', price: 5, front: 'jpg/11.webp', back: 'jpg/11.2.webp', link: '11.html' },
+            { id: 14, name: 'simple professional business card v.02 / pro-14', price: 7, front: 'jpg/14.2.webp', back: 'jpg/14.3.webp', link: '14.html' },
+            { id: 16, name: 'Modern Business card / pro-16', price: 5, front: 'jpg/16.1.webp', back: 'jpg/16.2.webp', link: '16.html' },
+            { id: 17, name: 'Modern simple Business card / pro-17', price: 5, front: 'jpg/17.2.webp', back: 'jpg/17.3.webp', link: '17.html' },
+            { id: 18, name: 'Modern Abstract Business card / pro-18', price: 6, front: 'jpg/18.2.webp', back: 'jpg/18.4.webp', link: '18.html' },
+            { id: 19, name: 'simple clean Business card / pro-19', price: 5, front: 'jpg1/19.3.webp', back: 'jpg1/19.3.webp', link: '19.html' },
+            { id: 20, name: 'simple clean Business card v.02 / pro-20', price: 5, front: 'jpg1/20.2.webp', back: 'jpg1/20.3.webp', link: '20.html' },
+            { id: 21, name: 'simple clean Business card v.02 / pro-21', price: 5, front: 'jpg1/21.2.webp', back: 'jpg1/21.3.webp', link: '21.html' },
+            { id: 22, name: 'simple clean Business card v.03 / pro-22', price: 5, front: 'jpg1/22.2.webp', back: 'jpg1/22.3.webp', link: '22.html' },
+            { id: 23, name: 'Business card package pro 17 to 22 / pro-23', price: 19, front: 'jpg1/23.0.webp', back: 'jpg1/23.0.webp', link: '23.html' },
+            { id: 25, name: 'Visiting card / pro-25', price: 6, front: 'jpg1/25.2.webp', back: 'jpg1/25.3.webp', link: '25.html' },
+            { id: 34, name: 'Half invisible Business card version 1 / pro-34', price: 6, front: '2/jpg/1.2.webp', back: '2/jpg/1.3.webp', link: '2/34.html' },
+            { id: 35, name: 'Modern Business card /pro-35', price: 5, front: '2/jpg/2.2.webp', back: '2/jpg/2.3.webp', link: '2/35.html' },
+            { id: 36, name: 'Modern Professional Business card v.01 / pro-36', price: 6, front: '2/jpg/3.2.webp', back: '2/jpg/3.3.webp', link: '2/36.html' },
+                        {
+                id: 39, name: 'Modern abstract business card v.01 / pro-39', price: 9, front: '2/jpg/6.2.webp', back: '2/jpg/6.3.webp', link: '2/39.html'
+            },
+            { id: 40, name: 'Modern abstract business card v.02 / pro-40', price: 9, front: '2/jpg/7.2.webp', back: '2/jpg/7.3.webp', link: '2/40.html' },
+            {
+                id: 41, name: 'Modern steel business card v.01/ pro-41', price: 9, front: '2/jpg/8.2.webp', back: '2/jpg/8.3.webp', link:
+                    '2/41.html'
+            },
+                        {
+                id: 48, name: 'Art Gallery Business cardv.01 / pro-48', price: 7, front: '2/jpg1/15.2.webp', back: '2/jpg1/15.3.webp', link:
+                    '2/48.html'
+            },
+            {
+                id: 49, name: 'Professional Business cardv.01 / pro-49', price: 7, front: '2/jpg1/16.2.webp', back: '2/jpg1/16.3.webp', link:
+                    '2/49.html'
+            },
+            {
+                id: 51, name: 'Professional Business cardv.02 / pro-51', price: 7, front: '2/jpg1/17.2.webp', back: '2/jpg1/17.3.webp', link:
+                    '2/51.html'
+            },
+            {
+                id: 52, name: 'Professional Business cardv.03 / pro-52', price: 8, front: '2/jpg1/18.2.webp', back: '2/jpg1/18.3.webp',
+                link: '2/52.html'
+            },
+            {
+                id: 53, name: 'Lawism Business card v.01 / pro-53', price: 7, front: '2/jpg1/19.2.webp', back: '2/jpg1/19.3.webp',
+                link: '2/53.html'
+            },
+            
+        ];
+
+        // Render products function
+        function renderProducts(list) {
+            productList.innerHTML = '';
+            list.forEach(p => {
+                const div = document.createElement('div');
+                div.className = 'product';
+                div.innerHTML = `
+                            <a href="${p.link}">
+                                <div class="product-inner">
+                                    <div class="product-front">
+                                        <img src="${p.front}" alt="${p.name}" loading="eager">
+                                        <h3>${p.name}</h3>
+                                        <p class="price">$${p.price}</p>
+                                    </div>
+                                    <div class="product-back">
+                                        <img src="${p.back}" alt="${p.name} Back" loading="eager">
+                                        <button class="btn" onclick="addToCart(${p.id}); event.preventDefault();">buy now</button>
+                                    </div>
+                                </div>
+                            </a>
+                        `;
+                productList.appendChild(div);
+            });
+        }
+
+        // Initial render
+        renderProducts(products);
+
+        // --- SEARCH DROPDOWN WITH QUERY PASS ---
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            suggestions.innerHTML = '';
+            const filtered = categories.filter(c => c.name.toLowerCase().includes(query));
+
+            filtered.forEach(c => {
+                const a = document.createElement('a');
+                a.textContent = c.name;
+                a.href = c.link + '?search=' + encodeURIComponent(searchInput.value);
+                suggestions.appendChild(a);
+            });
+
+            suggestions.style.display = filtered.length ? 'block' : 'none';
+        });
+        // ENTER KEY FUNCTION
+        searchInput.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+
+                const query = searchInput.value.toLowerCase();
+
+                // Find first category match
+                const match = categories.find(c =>
+                    c.name.toLowerCase().includes(query)
+                );
+
+                if (match) {
+                    // Go to that page with ?search query
+                    window.location.href = match.link + "?search=" + encodeURIComponent(searchInput.value);
+                } else {
+                    // If no category matched, hide suggestions
+                    suggestions.style.display = "none";
+                }
+            }
+        });
+
+        // Hide suggestions if click outside
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !suggestions.contains(e.target)) {
+                suggestions.style.display = 'none';
+            }
+        });
+
+        // Cart functions
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            if (!product) return;
+            const existing = cart.find(item => item.id === id);
+            if (existing) existing.qty++;
+            else cart.push({ ...product, qty: 1 });
+            updateCart();
+            cartBox.style.display = 'block';
+        }
+
+        function updateCart() {
+            cartItems.innerHTML = '';
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price * item.qty;
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `${item.name} x${item.qty} <b>$${(item.price * item.qty).toFixed(2)}</b>`;
+                cartItems.appendChild(div);
+            });
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        function clearCart() {
+            cart.length = 0;
+            updateCart();
+        }
+
+        document.getElementById('cartButton').addEventListener('click', () => {
+            cartBox.style.display = cartBox.style.display === 'block' ? 'none' : 'block';
+        });
+        function scrollToProducts() {
+            productList.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Remove the second redundant loop at the end; all products are already rendered.
+    </script>
+
+
+
+</body>
+
+</html>
